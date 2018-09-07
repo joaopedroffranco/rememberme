@@ -50,5 +50,20 @@
             </objects>
             <point key="canvasLocation" x="23" y="27"/>
         </scene>
+        <!--Home Controller-->
+        <scene sceneID="Xel-jC-ZV0">
+            <objects>
+                <viewController storyboardIdentifier="HomeController" id="bXu-jA-znC" customClass="HomeController" customModule="RememberMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fIV-PR-TXR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="emv-Cl-zQL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22C-Jz-mG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="27"/>
+        </scene>
     </scenes>
 </document>

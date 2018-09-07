@@ -17,3 +17,11 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: className)
     }
 }
+
+extension UIView {
+    static func instantiate() -> UIView {
+        let fullName = NSStringFromClass(self)
+        let className = fullName.components(separatedBy: ".")[1]
+        return UINib(nibName: className, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    }
+}

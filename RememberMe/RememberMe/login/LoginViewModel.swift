@@ -7,11 +7,11 @@
 //
 
 import Foundation
-import UIKit
 
 protocol LoginViewModelType {
     var touchID: TouchIDType! { get set }
     var controller: LoginControllerInterface! { get set }
+    var coordinator: LoginCoordinatorDelegate! { get set }
     
     func checkTouchID()
     func tryAgain()
@@ -19,12 +19,15 @@ protocol LoginViewModelType {
 
 class LoginViewModel: LoginViewModelType {
     var controller: LoginControllerInterface!
+    var coordinator: LoginCoordinatorDelegate!
     var touchID: TouchIDType!
     
-    init() {
+    init(coordinator: LoginCoordinatorDelegate) {
+        self.coordinator = coordinator
         self.touchID = TouchID(successed: {
             DispatchQueue.main.async {
                 self.controller.loginSuccessed()
+                self.coordinator.presentHome()
             }
         }, failed: { (message) in
             DispatchQueue.main.async {

@@ -21,6 +21,17 @@
 		A72B93A62142CB9600D376B8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93A52142CB9600D376B8 /* Protocol.swift */; };
 		A72B93A82142CEA600D376B8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93A72142CEA600D376B8 /* LoginViewModel.swift */; };
 		A72B93AC2142D00B00D376B8 /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93AB2142D00B00D376B8 /* TouchID.swift */; };
+		A72B93AE21430A0600D376B8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93AD21430A0600D376B8 /* HomeCoordinator.swift */; };
+		A72B93B021430A4700D376B8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93AF21430A4700D376B8 /* HomeController.swift */; };
+		A72B93B221430A5B00D376B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93B121430A5B00D376B8 /* HomeViewModel.swift */; };
+		A72B93B421430BD900D376B8 /* PasswordsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93B321430BD900D376B8 /* PasswordsView.xib */; };
+		A72B93B621430C1100D376B8 /* PasswordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93B521430C1100D376B8 /* PasswordTableViewCell.xib */; };
+		A72B93BA21430CC400D376B8 /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93B921430CC400D376B8 /* PasswordTableViewCell.swift */; };
+		A72B93BC21430DC900D376B8 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93BB21430DC900D376B8 /* Password.swift */; };
+		A72B93BE21430EB900D376B8 /* PasswordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93BD21430EB900D376B8 /* PasswordsView.swift */; };
+		A72B93C12143115400D376B8 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93C02143115400D376B8 /* EmptyView.xib */; };
+		A72B93C32143115B00D376B8 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93C22143115B00D376B8 /* EmptyView.swift */; };
+		A72B93C72143213100D376B8 /* PasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93C62143213100D376B8 /* PasswordService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +72,17 @@
 		A72B93A52142CB9600D376B8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		A72B93A72142CEA600D376B8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A72B93AB2142D00B00D376B8 /* TouchID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
+		A72B93AD21430A0600D376B8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		A72B93AF21430A4700D376B8 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		A72B93B121430A5B00D376B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A72B93B321430BD900D376B8 /* PasswordsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordsView.xib; sourceTree = "<group>"; };
+		A72B93B521430C1100D376B8 /* PasswordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordTableViewCell.xib; sourceTree = "<group>"; };
+		A72B93B921430CC400D376B8 /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
+		A72B93BB21430DC900D376B8 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		A72B93BD21430EB900D376B8 /* PasswordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordsView.swift; sourceTree = "<group>"; };
+		A72B93C02143115400D376B8 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		A72B93C22143115B00D376B8 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		A72B93C62143213100D376B8 /* PasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,14 +133,13 @@
 		A72B93612142C76300D376B8 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
-				A72B93A92142CFDC00D376B8 /* module */,
+				A72B93C42143211700D376B8 /* data */,
 				A72B93A12142CB3F00D376B8 /* util */,
 				A72B93982142C83300D376B8 /* initial */,
 				A72B93972142C82700D376B8 /* assets */,
 				A72B93962142C81300D376B8 /* add */,
 				A72B93952142C80E00D376B8 /* home */,
 				A72B93942142C80000D376B8 /* login */,
-				A72B93932142C7F000D376B8 /* model */,
 				A72B93662142C76300D376B8 /* Main.storyboard */,
 				A72B936E2142C76400D376B8 /* LaunchScreen.storyboard */,
 				A72B93712142C76400D376B8 /* Info.plist */,
@@ -148,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				A72B93692142C76300D376B8 /* RememberMe.xcdatamodeld */,
+				A72B93BB21430DC900D376B8 /* Password.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -165,6 +187,11 @@
 		A72B93952142C80E00D376B8 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				A72B93BF2143114800D376B8 /* empty */,
+				A72B93B721430C5B00D376B8 /* passwords */,
+				A72B93AD21430A0600D376B8 /* HomeCoordinator.swift */,
+				A72B93AF21430A4700D376B8 /* HomeController.swift */,
+				A72B93B121430A5B00D376B8 /* HomeViewModel.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -208,6 +235,52 @@
 				A72B93AB2142D00B00D376B8 /* TouchID.swift */,
 			);
 			path = module;
+			sourceTree = "<group>";
+		};
+		A72B93B721430C5B00D376B8 /* passwords */ = {
+			isa = PBXGroup;
+			children = (
+				A72B93B821430C8B00D376B8 /* cell */,
+				A72B93B321430BD900D376B8 /* PasswordsView.xib */,
+				A72B93BD21430EB900D376B8 /* PasswordsView.swift */,
+			);
+			path = passwords;
+			sourceTree = "<group>";
+		};
+		A72B93B821430C8B00D376B8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A72B93B921430CC400D376B8 /* PasswordTableViewCell.swift */,
+				A72B93B521430C1100D376B8 /* PasswordTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		A72B93BF2143114800D376B8 /* empty */ = {
+			isa = PBXGroup;
+			children = (
+				A72B93C22143115B00D376B8 /* EmptyView.swift */,
+				A72B93C02143115400D376B8 /* EmptyView.xib */,
+			);
+			path = empty;
+			sourceTree = "<group>";
+		};
+		A72B93C42143211700D376B8 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				A72B93C52143212300D376B8 /* service */,
+				A72B93932142C7F000D376B8 /* model */,
+				A72B93A92142CFDC00D376B8 /* module */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		A72B93C52143212300D376B8 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				A72B93C62143213100D376B8 /* PasswordService.swift */,
+			);
+			path = service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +387,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72B93B421430BD900D376B8 /* PasswordsView.xib in Resources */,
 				A72B93702142C76400D376B8 /* LaunchScreen.storyboard in Resources */,
 				A72B936D2142C76400D376B8 /* Assets.xcassets in Resources */,
 				A72B93682142C76300D376B8 /* Main.storyboard in Resources */,
+				A72B93C12143115400D376B8 /* EmptyView.xib in Resources */,
+				A72B93B621430C1100D376B8 /* PasswordTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,12 +418,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72B93632142C76300D376B8 /* AppDelegate.swift in Sources */,
+				A72B93BA21430CC400D376B8 /* PasswordTableViewCell.swift in Sources */,
 				A72B936B2142C76300D376B8 /* RememberMe.xcdatamodeld in Sources */,
+				A72B93B021430A4700D376B8 /* HomeController.swift in Sources */,
+				A72B93C32143115B00D376B8 /* EmptyView.swift in Sources */,
 				A72B939C2142C95400D376B8 /* LoginCoordinator.swift in Sources */,
 				A72B93AC2142D00B00D376B8 /* TouchID.swift in Sources */,
 				A72B93A62142CB9600D376B8 /* Protocol.swift in Sources */,
 				A72B93A82142CEA600D376B8 /* LoginViewModel.swift in Sources */,
+				A72B93BE21430EB900D376B8 /* PasswordsView.swift in Sources */,
+				A72B93B221430A5B00D376B8 /* HomeViewModel.swift in Sources */,
 				A72B93A32142CB4F00D376B8 /* Extension.swift in Sources */,
+				A72B93BC21430DC900D376B8 /* Password.swift in Sources */,
+				A72B93C72143213100D376B8 /* PasswordService.swift in Sources */,
+				A72B93AE21430A0600D376B8 /* HomeCoordinator.swift in Sources */,
 				A72B939A2142C87600D376B8 /* Coordinator.swift in Sources */,
 				A72B939E2142CA7200D376B8 /* LoginController.swift in Sources */,
 			);

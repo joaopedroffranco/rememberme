@@ -8,20 +8,37 @@
 
 import UIKit
 
+protocol LoginCoordinatorDelegate {
+    func presentHome()
+}
+
 class LoginCoordinator: Coordinador {
     var current: UIViewController!
     var navigationController: UINavigationController!
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.configureNavigationController()
+    }
+    
+    func configureNavigationController() {
+        self.navigationController.isNavigationBarHidden = true
     }
     
     func present() {
         let loginController = LoginController.instantiate() as! LoginController
 
-        let loginViewModel = LoginViewModel()
+        let loginViewModel = LoginViewModel(coordinator: self)
         loginController.loginViewModel = loginViewModel
 
-        navigationController.pushViewController(loginController, animated: true)
+        self.current = loginController
+        self.navigationController.pushViewController(loginController, animated: true)
+    }
+}
+
+extension LoginCoordinator: LoginCoordinatorDelegate {
+    func presentHome() {
+        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+        homeCoordinator.present()
     }
 }
