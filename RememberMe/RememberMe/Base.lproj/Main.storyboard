@@ -24,14 +24,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0K-vf-S8b">
+                                <rect key="frame" x="128.5" y="359" width="118" height="30"/>
+                                <state key="normal" title="Tente novamente"/>
+                                <connections>
+                                    <action selector="tryAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="db7-ZA-SOJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="S0K-vf-S8b" firstAttribute="centerX" secondItem="Z3S-si-6bs" secondAttribute="centerX" id="2nh-ZH-vyL"/>
                             <constraint firstItem="Z3S-si-6bs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="M3J-6b-QjX"/>
                             <constraint firstItem="Z3S-si-6bs" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QYQ-og-ncs"/>
+                            <constraint firstItem="S0K-vf-S8b" firstAttribute="top" secondItem="Z3S-si-6bs" secondAttribute="bottom" constant="5" id="W1k-Nl-i0M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginStatusLabel" destination="Z3S-si-6bs" id="UAN-Xx-IvL"/>
+                        <outlet property="tryAgainButton" destination="S0K-vf-S8b" id="sCR-n5-nIP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

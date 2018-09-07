@@ -17,7 +17,11 @@ class LoginCoordinator: Coordinador {
     }
     
     func present() {
-        let loginController = LoginController.instantiate()
+        let loginController = LoginController.instantiate() as! LoginController
+
+        let loginViewModel = LoginViewModel()
+        loginController.loginViewModel = loginViewModel
+
         navigationController.pushViewController(loginController, animated: true)
     }
 }

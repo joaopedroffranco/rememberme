@@ -19,6 +19,8 @@
 		A72B939E2142CA7200D376B8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B939D2142CA7200D376B8 /* LoginController.swift */; };
 		A72B93A32142CB4F00D376B8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93A22142CB4F00D376B8 /* Extension.swift */; };
 		A72B93A62142CB9600D376B8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93A52142CB9600D376B8 /* Protocol.swift */; };
+		A72B93A82142CEA600D376B8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93A72142CEA600D376B8 /* LoginViewModel.swift */; };
+		A72B93AC2142D00B00D376B8 /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93AB2142D00B00D376B8 /* TouchID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		A72B939D2142CA7200D376B8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		A72B93A22142CB4F00D376B8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A72B93A52142CB9600D376B8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		A72B93A72142CEA600D376B8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A72B93AB2142D00B00D376B8 /* TouchID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		A72B93612142C76300D376B8 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
+				A72B93A92142CFDC00D376B8 /* module */,
 				A72B93A12142CB3F00D376B8 /* util */,
 				A72B93982142C83300D376B8 /* initial */,
 				A72B93972142C82700D376B8 /* assets */,
@@ -152,6 +157,7 @@
 			children = (
 				A72B939B2142C95400D376B8 /* LoginCoordinator.swift */,
 				A72B939D2142CA7200D376B8 /* LoginController.swift */,
+				A72B93A72142CEA600D376B8 /* LoginViewModel.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -194,6 +200,14 @@
 				A72B93A52142CB9600D376B8 /* Protocol.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		A72B93A92142CFDC00D376B8 /* module */ = {
+			isa = PBXGroup;
+			children = (
+				A72B93AB2142D00B00D376B8 /* TouchID.swift */,
+			);
+			path = module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +344,9 @@
 				A72B93632142C76300D376B8 /* AppDelegate.swift in Sources */,
 				A72B936B2142C76300D376B8 /* RememberMe.xcdatamodeld in Sources */,
 				A72B939C2142C95400D376B8 /* LoginCoordinator.swift in Sources */,
+				A72B93AC2142D00B00D376B8 /* TouchID.swift in Sources */,
 				A72B93A62142CB9600D376B8 /* Protocol.swift in Sources */,
+				A72B93A82142CEA600D376B8 /* LoginViewModel.swift in Sources */,
 				A72B93A32142CB4F00D376B8 /* Extension.swift in Sources */,
 				A72B939A2142C87600D376B8 /* Coordinator.swift in Sources */,
 				A72B939E2142CA7200D376B8 /* LoginController.swift in Sources */,
