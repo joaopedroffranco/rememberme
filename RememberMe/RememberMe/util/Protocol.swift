@@ -7,7 +7,3 @@
 //
 
 import Foundation
-
-protocol Storyboardable {
-    static func instantiate() -> Self
-}

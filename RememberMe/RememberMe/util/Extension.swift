@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension UIViewController {
     static func instantiate(from: String = "Main") -> UIViewController {
@@ -23,5 +24,10 @@ extension UIView {
         let fullName = NSStringFromClass(self)
         let className = fullName.components(separatedBy: ".")[1]
         return UINib(nibName: className, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    }
+    
+    static var identifier: String {
+        let fullName = NSStringFromClass(self)
+        return fullName.components(separatedBy: ".")[1]
     }
 }

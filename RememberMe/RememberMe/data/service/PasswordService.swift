@@ -9,14 +9,20 @@
 import Foundation
 
 protocol PasswordServiceType {
+    func add(name: String, content: String)
     func fetch(callback: (_ passwords: [Password], _ error: String?) -> Void)
 }
 
 class PasswordService: PasswordServiceType {
+    func add(name: String, content: String) {
+        let passwordObject = Password.get()
+        passwordObject?.name = name
+        passwordObject?.content = content
+        CoreDataManager.shared.saveContext()
+    }
+
     func fetch(callback: ([Password], String?) -> Void) {
-        let responseZero: [Password] = []
-        let responseNoZero: [Password] = [Password(name: "bla", content: "bla")]
-        
-        callback(responseZero, nil)
+        let passwords = Password.fetch()
+        callback(passwords, nil)
     }
 }

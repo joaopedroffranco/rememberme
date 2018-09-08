@@ -26,16 +26,16 @@ class HomeViewModel: HomeViewModelType {
         self.service.fetch { passwords, error in
             if let _ = error {
                 DispatchQueue.main.async {
-                    self.controller.show(state: .error)
+                    self.controller.show(state: .error, withPasswords: [])
                 }
             } else {
                 if (passwords.isEmpty) {
                     DispatchQueue.main.async {
-                        self.controller.show(state: .empty)
+                        self.controller.show(state: .empty, withPasswords: [])
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.controller.show(state: .passwords)
+                        self.controller.show(state: .passwords, withPasswords: passwords)
                     }
                 }
             }

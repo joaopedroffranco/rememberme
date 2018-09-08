@@ -11,4 +11,9 @@ import UIKit
 class PasswordTableViewCell: UITableViewCell {
     @IBOutlet weak var passwordNameLabel: UILabel!
     @IBOutlet weak var passwordContentLabel: UILabel!
+    
+    func fill(name: String, content: String) {
+        self.passwordNameLabel.text = name
+        self.passwordContentLabel.text = content
+    }
 }
