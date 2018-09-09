@@ -9,15 +9,18 @@
 import UIKit
 
 protocol PasswordsViewModelType {
+    var parentViewModel: HomeViewModelType! { get set }
     var view: PasswordsViewInterface! { get set }
     var passwords: [Password] { get set }
     var sections: Int { get }
     var rows: Int { get }
     func cellForRow(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func update(passwords: [Password])
+    func longPressed(tableview: UITableView, gesture: UIGestureRecognizer)
 }
 
 class PasswordsViewModel: PasswordsViewModelType {
+    var parentViewModel: HomeViewModelType!
     var view: PasswordsViewInterface!
     var passwords: [Password] = []
     
@@ -31,6 +34,10 @@ class PasswordsViewModel: PasswordsViewModelType {
         get {
             return passwords.count
         }
+    }
+    
+    init(parentViewModel: HomeViewModelType) {
+        self.parentViewModel = parentViewModel
     }
     
     func cellForRow(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -47,6 +54,15 @@ class PasswordsViewModel: PasswordsViewModelType {
     func update(passwords: [Password]) {
         self.passwords = passwords
         self.view.reload()
-        
+    }
+    
+    func longPressed(tableview: UITableView, gesture: UIGestureRecognizer) {
+        if (gesture.state == .began) {
+            let location = gesture.location(in: tableview)
+            if let indexPath = tableview.indexPathForRow(at: location) {
+                let password = self.passwords[indexPath.row]
+                self.parentViewModel.presentOptionsAlertController(forPassword: password)
+            }
+        }
     }
 }

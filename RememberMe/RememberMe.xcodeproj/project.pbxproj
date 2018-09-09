@@ -139,7 +139,7 @@
 				A72B93A12142CB3F00D376B8 /* util */,
 				A72B93982142C83300D376B8 /* initial */,
 				A72B93972142C82700D376B8 /* assets */,
-				A72B93962142C81300D376B8 /* add */,
+				A72B93962142C81300D376B8 /* password */,
 				A72B93952142C80E00D376B8 /* home */,
 				A72B93942142C80000D376B8 /* login */,
 				A72B93662142C76300D376B8 /* Main.storyboard */,
@@ -197,11 +197,11 @@
 			path = home;
 			sourceTree = "<group>";
 		};
-		A72B93962142C81300D376B8 /* add */ = {
+		A72B93962142C81300D376B8 /* password */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = add;
+			path = password;
 			sourceTree = "<group>";
 		};
 		A72B93972142C82700D376B8 /* assets */ = {

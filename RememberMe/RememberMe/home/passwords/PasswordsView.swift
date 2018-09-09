@@ -27,6 +27,17 @@ class PasswordsView: UIView {
             self.viewModel.view = self
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed))
+        self.passwordsTableView.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc func longPressed(gesture: UILongPressGestureRecognizer) {
+        self.viewModel.longPressed(tableview: self.passwordsTableView, gesture: gesture)
+    }
 }
 
 extension PasswordsView: PasswordsViewInterface {

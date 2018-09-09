@@ -55,4 +55,8 @@ extension CoreDataModel where Self: NSManagedObject {
             return []
         }
     }
+    
+    static func delete(fromContext: NSManagedObjectContext = CoreDataManager.shared.persistentContainer.viewContext, object: NSManagedObject) {
+        fromContext.delete(object)
+    }
 }

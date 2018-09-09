@@ -6,13 +6,15 @@
 //  Copyright © 2018 joaopedroffranco. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol HomeViewModelType {
     var controller: HomeControllerInterface! { get set }
     var service: PasswordServiceType! { get set }
     func addPassword()
+    func removePassword(_ password: Password)
     func fetchPasswords()
+    func presentOptionsAlertController(forPassword password: Password)
 }
 
 class HomeViewModel: HomeViewModelType {
@@ -25,6 +27,11 @@ class HomeViewModel: HomeViewModelType {
     
     func addPassword() {
         self.service.add(name: "testando add", content: "123")
+        self.fetchPasswords()
+    }
+    
+    func removePassword(_ password: Password) {
+        self.service.remove(password: password)
         self.fetchPasswords()
     }
     
@@ -46,5 +53,15 @@ class HomeViewModel: HomeViewModelType {
                 }
             }
         }
+    }
+    
+    func presentOptionsAlertController(forPassword password: Password) {
+        let alertController = UIAlertController(title: "Escolha uma opção", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { (_) in
+            self.removePassword(password)
+        }))
+        alertController.addAction(UIAlertAction(title: "Editar", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        self.controller.show(alertController: alertController)
     }
 }

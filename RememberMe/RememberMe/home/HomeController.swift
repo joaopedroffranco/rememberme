@@ -16,6 +16,7 @@ enum HomeControllerState {
 
 protocol HomeControllerInterface {
     func show(state: HomeControllerState, withPasswords: [Password])
+    func show(alertController: UIAlertController)
 }
 
 class HomeController: UIViewController {
@@ -39,7 +40,7 @@ class HomeController: UIViewController {
             self.passwordsView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
             self.passwordsView.isHidden = true
 
-            self.passwordsView.viewModel = PasswordsViewModel()
+            self.passwordsView.viewModel = PasswordsViewModel(parentViewModel: self.homeViewModel)
         }
     }
 
@@ -84,5 +85,9 @@ extension HomeController: HomeControllerInterface {
         self.passwordsView.isHidden = !(state == .passwords)
         
         self.passwordsView.viewModel.update(passwords: withPasswords)
+    }
+    
+    func show(alertController: UIAlertController) {
+        self.present(alertController, animated: true, completion: nil)
     }
 }
