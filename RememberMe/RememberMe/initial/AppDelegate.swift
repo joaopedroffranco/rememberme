@@ -14,17 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private let navigationController: UINavigationController = {
         let navigationController = UINavigationController()
-        navigationController.navigationBar.backgroundColor = .blue
         return navigationController
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.rootViewController = navigationController
-        let loginCoordinator = LoginCoordinator(navigationController: self.navigationController)
-        loginCoordinator.present()
+//        let loginCoordinator = LoginCoordinator(navigationController: self.navigationController)
+//        loginCoordinator.present()
         
-//        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
-//        homeCoordinator.present()
+        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+        homeCoordinator.present()
 
         window?.makeKeyAndVisible()
 

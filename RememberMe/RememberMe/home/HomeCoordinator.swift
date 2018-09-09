@@ -14,11 +14,6 @@ class HomeCoordinator: Coordinador {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.configureNavigationController()
-    }
-    
-    func configureNavigationController() {
-        self.navigationController.isNavigationBarHidden = false
     }
     
     func present() {
@@ -29,6 +24,6 @@ class HomeCoordinator: Coordinador {
         homeController.homeViewModel = homeViewModel
         
         current = homeController
-        navigationController.pushViewController(homeController, animated: true)
+        self.navigationController.pushViewController(homeController, animated: true)
     }
 }

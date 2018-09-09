@@ -51,8 +51,15 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: false)
+
         self.view.translatesAutoresizingMaskIntoConstraints = false
+
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.navigationItem.title = "Minhas senhas"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .blue
+        self.navigationController?.navigationBar.tintColor = .white
         self.configureViews()
         
         self.homeViewModel.fetchPasswords()
