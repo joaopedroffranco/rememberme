@@ -11,6 +11,7 @@ import Foundation
 protocol HomeViewModelType {
     var controller: HomeControllerInterface! { get set }
     var service: PasswordServiceType! { get set }
+    func addPassword()
     func fetchPasswords()
 }
 
@@ -20,6 +21,11 @@ class HomeViewModel: HomeViewModelType {
     
     init(service: PasswordServiceType) {
         self.service = service
+    }
+    
+    func addPassword() {
+        self.service.add(name: "testando add", content: "123")
+        self.fetchPasswords()
     }
     
     func fetchPasswords() {

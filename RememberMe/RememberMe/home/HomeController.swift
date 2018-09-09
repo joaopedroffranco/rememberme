@@ -56,10 +56,12 @@ class HomeController: UIViewController {
 
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.title = "Minhas senhas"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addPassword))
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .blue
         self.navigationController?.navigationBar.tintColor = .white
+        
         self.configureViews()
         
         self.homeViewModel.fetchPasswords()
@@ -69,6 +71,10 @@ class HomeController: UIViewController {
         self.emptyView = EmptyView.instantiate() as! EmptyView
         self.passwordsView = PasswordsView.instantiate() as! PasswordsView
         self.view.layoutIfNeeded()
+    }
+    
+    @objc func addPassword() {
+        self.homeViewModel.addPassword()
     }
 }
 
