@@ -16,6 +16,7 @@ protocol PasswordsViewModelType {
     var rows: Int { get }
     func cellForRow(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func update(passwords: [Password])
+    func didSelectCell(tableView: UITableView, indexPath: IndexPath)
     func longPressed(tableview: UITableView, gesture: UIGestureRecognizer)
 }
 
@@ -49,6 +50,17 @@ class PasswordsViewModel: PasswordsViewModelType {
         cell.fill(name: password.name!, content: password.content!)
         
         return cell
+    }
+    
+    func didSelectCell(tableView: UITableView, indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+                DispatchQueue.main.async {
+                    cell.setSelected(false, animated: true)
+                }
+                timer.invalidate()
+            }
+        }
     }
     
     func update(passwords: [Password]) {

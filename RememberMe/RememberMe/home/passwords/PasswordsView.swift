@@ -19,6 +19,7 @@ class PasswordsView: UIView {
             self.passwordsTableView.register(cellNib, forCellReuseIdentifier: PasswordTableViewCell.identifier)
             self.passwordsTableView.dataSource = self
             self.passwordsTableView.delegate = self
+            self.passwordsTableView.tableFooterView = UIView()
         }
     }
     
@@ -48,14 +49,28 @@ extension PasswordsView: PasswordsViewInterface {
 
 extension PasswordsView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        guard let _ = self.viewModel else {
+            return 0
+        }
         return self.viewModel.sections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let _ = self.viewModel else {
+            return 0
+        }
         return self.viewModel.rows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return self.viewModel.cellForRow(tableView: tableView, indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel.didSelectCell(tableView: tableView, indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
