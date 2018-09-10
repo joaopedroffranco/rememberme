@@ -18,11 +18,6 @@ class LoginCoordinator: Coordinador {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.configureNavigationController()
-    }
-    
-    func configureNavigationController() {
-        self.navigationController.isNavigationBarHidden = true
     }
     
     func present() {

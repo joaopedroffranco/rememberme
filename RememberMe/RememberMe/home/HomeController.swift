@@ -47,6 +47,7 @@ class HomeController: UIViewController {
         super.viewWillAppear(animated)
 
         UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.title = "Minhas senhas"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addPassword))

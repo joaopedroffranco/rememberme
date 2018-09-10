@@ -41,6 +41,7 @@ class LoginController: UIViewController {
         super.viewWillAppear(animated)
         
         UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func tryAgain(_ sender: Any) {

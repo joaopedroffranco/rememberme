@@ -33,6 +33,7 @@ class PasswordController: UIViewController {
         super.viewWillAppear(animated)
 
         UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.title = self.passwordViewModel.password?.name ?? "Nova senha"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.done))
