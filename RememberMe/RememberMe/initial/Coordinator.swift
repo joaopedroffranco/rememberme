@@ -9,7 +9,6 @@
 import UIKit
 
 protocol Coordinador {
-    var current: UIViewController! { get set }
-    
+    var next: Coordinador! { get set }
     func present()
 }

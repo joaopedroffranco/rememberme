@@ -37,6 +37,12 @@ class LoginController: UIViewController {
         loginViewModel.checkTouchID()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     @IBAction func tryAgain(_ sender: Any) {
         loginViewModel.tryAgain()
     }

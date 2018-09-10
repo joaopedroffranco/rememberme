@@ -33,6 +33,9 @@
 		A72B93C72143213100D376B8 /* PasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93C62143213100D376B8 /* PasswordService.swift */; };
 		A72B93C92144288300D376B8 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93C82144288300D376B8 /* CoreData.swift */; };
 		A72B93CB21443A3500D376B8 /* PasswordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93CA21443A3500D376B8 /* PasswordsViewModel.swift */; };
+		A72B93CD2145D51400D376B8 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93CC2145D51400D376B8 /* PasswordController.swift */; };
+		A72B93CF2145D51E00D376B8 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93CE2145D51E00D376B8 /* PasswordViewModel.swift */; };
+		A72B93D12145D52600D376B8 /* PasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93D02145D52600D376B8 /* PasswordCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		A72B93C62143213100D376B8 /* PasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordService.swift; sourceTree = "<group>"; };
 		A72B93C82144288300D376B8 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		A72B93CA21443A3500D376B8 /* PasswordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordsViewModel.swift; sourceTree = "<group>"; };
+		A72B93CC2145D51400D376B8 /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
+		A72B93CE2145D51E00D376B8 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		A72B93D02145D52600D376B8 /* PasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +206,9 @@
 		A72B93962142C81300D376B8 /* password */ = {
 			isa = PBXGroup;
 			children = (
+				A72B93CC2145D51400D376B8 /* PasswordController.swift */,
+				A72B93CE2145D51E00D376B8 /* PasswordViewModel.swift */,
+				A72B93D02145D52600D376B8 /* PasswordCoordinator.swift */,
 			);
 			path = password;
 			sourceTree = "<group>";
@@ -429,12 +438,15 @@
 				A72B939C2142C95400D376B8 /* LoginCoordinator.swift in Sources */,
 				A72B93AC2142D00B00D376B8 /* TouchID.swift in Sources */,
 				A72B93A62142CB9600D376B8 /* Protocol.swift in Sources */,
+				A72B93CF2145D51E00D376B8 /* PasswordViewModel.swift in Sources */,
 				A72B93A82142CEA600D376B8 /* LoginViewModel.swift in Sources */,
 				A72B93BE21430EB900D376B8 /* PasswordsView.swift in Sources */,
+				A72B93D12145D52600D376B8 /* PasswordCoordinator.swift in Sources */,
 				A72B93B221430A5B00D376B8 /* HomeViewModel.swift in Sources */,
 				A72B93A32142CB4F00D376B8 /* Extension.swift in Sources */,
 				A72B93C72143213100D376B8 /* PasswordService.swift in Sources */,
 				A72B93AE21430A0600D376B8 /* HomeCoordinator.swift in Sources */,
+				A72B93CD2145D51400D376B8 /* PasswordController.swift in Sources */,
 				A72B939A2142C87600D376B8 /* Coordinator.swift in Sources */,
 				A72B93CB21443A3500D376B8 /* PasswordsViewModel.swift in Sources */,
 				A72B939E2142CA7200D376B8 /* LoginController.swift in Sources */,

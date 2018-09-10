@@ -13,7 +13,7 @@ protocol LoginCoordinatorDelegate {
 }
 
 class LoginCoordinator: Coordinador {
-    var current: UIViewController!
+    var next: Coordinador!
     var navigationController: UINavigationController!
     
     init(navigationController: UINavigationController) {
@@ -31,7 +31,6 @@ class LoginCoordinator: Coordinador {
         let loginViewModel = LoginViewModel(coordinator: self)
         loginController.loginViewModel = loginViewModel
 
-        self.current = loginController
         self.navigationController.pushViewController(loginController, animated: true)
     }
 }
@@ -39,6 +38,7 @@ class LoginCoordinator: Coordinador {
 extension LoginCoordinator: LoginCoordinatorDelegate {
     func presentHome() {
         let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+        self.next = homeCoordinator
         homeCoordinator.present()
     }
 }

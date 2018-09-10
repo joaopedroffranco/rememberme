@@ -19,11 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.rootViewController = navigationController
-//        let loginCoordinator = LoginCoordinator(navigationController: self.navigationController)
-//        loginCoordinator.present()
-        
-        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
-        homeCoordinator.present()
+        let loginCoordinator = LoginCoordinator(navigationController: self.navigationController)
+        loginCoordinator.present()
 
         window?.makeKeyAndVisible()
 

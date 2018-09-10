@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol HomeCoordinatorDelegate {
+    func presentAddPassword()
+    func presentPassword(_ password: Password?)
+}
+
 class HomeCoordinator: Coordinador {
-    var current: UIViewController!
+    var next: Coordinador!
     var navigationController: UINavigationController!
     
     init(navigationController: UINavigationController) {
@@ -20,10 +25,23 @@ class HomeCoordinator: Coordinador {
         let homeController = HomeController.instantiate() as! HomeController
         let passwordService = PasswordService()
 
-        let homeViewModel = HomeViewModel(service: passwordService)
+        let homeViewModel = HomeViewModel(service: passwordService, coordinator: self)
         homeController.homeViewModel = homeViewModel
         
-        current = homeController
         self.navigationController.pushViewController(homeController, animated: true)
+    }
+}
+
+extension HomeCoordinator: HomeCoordinatorDelegate {
+    func presentAddPassword() {
+        let passwordCoordinator = PasswordCoordinator(navigationController: self.navigationController)
+        self.next = passwordCoordinator
+        passwordCoordinator.present()
+    }
+    
+    func presentPassword(_ password: Password?) {
+        let passwordCoordinator = PasswordCoordinator(navigationController: self.navigationController, password: password)
+        self.next = passwordCoordinator
+        passwordCoordinator.present()
     }
 }

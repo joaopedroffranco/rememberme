@@ -9,6 +9,7 @@
 import UIKit
 
 protocol HomeViewModelType {
+    var coordinator: HomeCoordinatorDelegate! { get set }
     var controller: HomeControllerInterface! { get set }
     var service: PasswordServiceType! { get set }
     func addPassword()
@@ -18,16 +19,17 @@ protocol HomeViewModelType {
 }
 
 class HomeViewModel: HomeViewModelType {
+    var coordinator: HomeCoordinatorDelegate!
     var controller: HomeControllerInterface!
     var service: PasswordServiceType!
     
-    init(service: PasswordServiceType) {
+    init(service: PasswordServiceType, coordinator: HomeCoordinatorDelegate) {
         self.service = service
+        self.coordinator = coordinator
     }
     
     func addPassword() {
-        self.service.add(name: "testando add", content: "123")
-        self.fetchPasswords()
+        self.coordinator.presentAddPassword()
     }
     
     func removePassword(_ password: Password) {
@@ -60,7 +62,9 @@ class HomeViewModel: HomeViewModelType {
         alertController.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { (_) in
             self.removePassword(password)
         }))
-        alertController.addAction(UIAlertAction(title: "Editar", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Editar", style: .default, handler: { (_) in
+            self.coordinator.presentPassword(password)
+        }))
         alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         self.controller.show(alertController: alertController)
     }

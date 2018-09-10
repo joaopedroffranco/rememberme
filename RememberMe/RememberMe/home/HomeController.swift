@@ -22,24 +22,12 @@ protocol HomeControllerInterface {
 class HomeController: UIViewController {
     var emptyView: EmptyView! {
         didSet {
-            self.view.addSubview(self.emptyView)
-            self.emptyView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            self.emptyView.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
-            self.emptyView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-            self.emptyView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-            self.emptyView.isHidden = false
+            self.emptyView.translatesAutoresizingMaskIntoConstraints = false
         }
     }
-
     var passwordsView: PasswordsView! {
         didSet {
-            self.view.addSubview(self.passwordsView)
-            self.passwordsView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            self.passwordsView.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
-            self.passwordsView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-            self.passwordsView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-            self.passwordsView.isHidden = true
-
+            self.passwordsView.translatesAutoresizingMaskIntoConstraints = false
             self.passwordsView.viewModel = PasswordsViewModel(parentViewModel: self.homeViewModel)
         }
     }
@@ -52,9 +40,13 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        self.view.translatesAutoresizingMaskIntoConstraints = false
-
+        UIApplication.shared.statusBarStyle = .lightContent
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.title = "Minhas senhas"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addPassword))
@@ -62,29 +54,56 @@ class HomeController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .blue
         self.navigationController?.navigationBar.tintColor = .white
-        
-        self.configureViews()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.homeViewModel.fetchPasswords()
     }
     
     func configureViews() {
         self.emptyView = EmptyView.instantiate() as! EmptyView
         self.passwordsView = PasswordsView.instantiate() as! PasswordsView
-        self.view.layoutIfNeeded()
     }
     
     @objc func addPassword() {
         self.homeViewModel.addPassword()
     }
+    
+    func showPasswordsView() {
+        self.emptyView.removeFromSuperview()
+
+        self.view.addSubview(self.passwordsView)
+        NSLayoutConstraint(item: self.passwordsView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.passwordsView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.passwordsView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.passwordsView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        self.view.layoutIfNeeded()
+    }
+    
+    func showEmptyView() {
+        self.passwordsView.removeFromSuperview()
+        
+        self.view.addSubview(self.emptyView)
+        NSLayoutConstraint(item: self.emptyView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.emptyView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.emptyView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.emptyView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        self.view.layoutIfNeeded()
+    }
 }
 
 extension HomeController: HomeControllerInterface {
     func show(state: HomeControllerState, withPasswords: [Password]) {
-        self.emptyView.isHidden = !(state == .empty) && !(state == .error)
-        self.passwordsView.isHidden = !(state == .passwords)
-        
-        self.passwordsView.viewModel.update(passwords: withPasswords)
+        switch state {
+        case .empty:
+            self.showEmptyView()
+        case .passwords:
+            self.showPasswordsView()
+            self.passwordsView.viewModel.update(passwords: withPasswords)
+        default:
+            self.showEmptyView()
+        }
     }
     
     func show(alertController: UIAlertController) {
