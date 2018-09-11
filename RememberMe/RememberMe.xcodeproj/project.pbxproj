@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05F2CB10214829E500C9FAF0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2CB0F214829E500C9FAF0 /* Session.swift */; };
 		A72B93632142C76300D376B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93622142C76300D376B8 /* AppDelegate.swift */; };
 		A72B93682142C76300D376B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72B93662142C76300D376B8 /* Main.storyboard */; };
 		A72B936B2142C76300D376B8 /* RememberMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A72B93692142C76300D376B8 /* RememberMe.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05F2CB0F214829E500C9FAF0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A72B935F2142C76300D376B8 /* RememberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72B93622142C76300D376B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A72B93672142C76300D376B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				A72B93AB2142D00B00D376B8 /* TouchID.swift */,
 				A72B93C82144288300D376B8 /* CoreData.swift */,
+				05F2CB0F214829E500C9FAF0 /* Session.swift */,
 			);
 			path = module;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				A72B93C72143213100D376B8 /* PasswordService.swift in Sources */,
 				A72B93AE21430A0600D376B8 /* HomeCoordinator.swift in Sources */,
 				A72B93CD2145D51400D376B8 /* PasswordController.swift in Sources */,
+				05F2CB10214829E500C9FAF0 /* Session.swift in Sources */,
 				A72B939A2142C87600D376B8 /* Coordinator.swift in Sources */,
 				A72B93CB21443A3500D376B8 /* PasswordsViewModel.swift in Sources */,
 				A72B939E2142CA7200D376B8 /* LoginController.swift in Sources */,
