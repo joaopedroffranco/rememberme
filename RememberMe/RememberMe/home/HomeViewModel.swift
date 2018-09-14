@@ -58,7 +58,7 @@ class HomeViewModel: HomeViewModelType {
     }
     
     func presentOptionsAlertController(forPassword password: Password) {
-        let alertController = UIAlertController(title: "Escolha uma opção", message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: password.name, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { (_) in
             self.removePassword(password)
         }))

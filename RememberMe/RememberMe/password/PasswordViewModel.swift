@@ -13,6 +13,7 @@ protocol PasswordViewModelType {
     var controller: PasswordControllerInterface! { get set }
     var service: PasswordServiceType! { get set }
     var password: Password? { get set }
+    func didChangeSelectedControl(index: Int)
     func done()
 }
 
@@ -29,18 +30,23 @@ class PasswordViewModel: PasswordViewModelType {
     }
     
     func done() {
-        let passwordInfo = self.controller.getPasswordInfo()
-        if let name = passwordInfo.name, let content = passwordInfo.content, name != "" && content != "" {
+        if let name = self.controller.name, let content = self.controller.content, name != "" && content != "" {
             if let _ = self.password {
                 self.password?.name = name
                 self.password?.content = content
+                self.password?.desc = self.controller.desc
+                self.password?.type = Int16(self.controller.category)
             } else {
-                self.service.add(name: name, content: content)
+                self.service.add(name: name, content: content, desc: self.controller.desc, type: Int16(self.controller.category))
             }
             
             CoreDataManager.shared.saveContext()
         }
         
         self.coordinator.dismiss()
+    }
+    
+    func didChangeSelectedControl(index: Int) {
+        self.controller.updateView(byPasswordCategory: PasswordCategory(rawValue: index) ?? PasswordCategory.other)
     }
 }

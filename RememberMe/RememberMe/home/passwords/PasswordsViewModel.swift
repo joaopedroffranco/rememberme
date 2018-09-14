@@ -47,19 +47,14 @@ class PasswordsViewModel: PasswordsViewModelType {
         }
         
         let password = self.passwords[indexPath.row]
-        cell.fill(name: password.name!, content: password.content!)
+        cell.fill(password: password)
         
         return cell
     }
     
     func didSelectCell(collectionView: UICollectionView, indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) {
-            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
-                DispatchQueue.main.async {
-                    cell.isSelected = false
-                }
-                timer.invalidate()
-            }
+        if let cell = collectionView.cellForItem(at: indexPath) as? PasswordCollectionViewCell {
+            cell.didSelect()
         }
     }
     

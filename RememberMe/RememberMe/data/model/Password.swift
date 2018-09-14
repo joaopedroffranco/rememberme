@@ -6,13 +6,34 @@
 //  Copyright © 2018 joaopedroffranco. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-enum PasswordType {
-    case other
-    case social
-    case email
-    case card
+enum PasswordCategory: Int {
+    case social = 0
+    case email = 1
+    case card = 2
+    case other = 3
+    
+    var statusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    var tintColor: UIColor {
+        return .white
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .social:
+            return .appBlue
+        case .email:
+            return .appRed
+        case .card:
+            return .appGreen
+        default:
+            return .appBlack
+        }
+    }
     
     var string: String {
         switch self {
@@ -25,5 +46,11 @@ enum PasswordType {
         default:
             return "Outro"
         }
+    }
+}
+
+extension Password {
+    var category: PasswordCategory {
+        return PasswordCategory(rawValue: Int(self.type)) ?? PasswordCategory.other
     }
 }

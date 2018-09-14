@@ -9,16 +9,18 @@
 import Foundation
 
 protocol PasswordServiceType {
-    func add(name: String, content: String)
+    func add(name: String, content: String, desc: String?, type: Int16)
     func remove(password: Password)
     func fetch(callback: (_ passwords: [Password], _ error: String?) -> Void)
 }
 
 class PasswordService: PasswordServiceType {
-    func add(name: String, content: String) {
+    func add(name: String, content: String, desc: String?, type: Int16) {
         let passwordObject = Password.get()
         passwordObject?.name = name
         passwordObject?.content = content
+        passwordObject?.desc = desc
+        passwordObject?.type = type
         CoreDataManager.shared.saveContext()
     }
     

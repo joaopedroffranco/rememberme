@@ -60,6 +60,10 @@ extension PasswordsView: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.bounds.width / 2) - 5, height: 100.0)
+        return CGSize(width: self.bounds.width - 12.0, height: 90.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10.0, left: 3.0, bottom: 3.0, right: 3.0)
     }
 }
