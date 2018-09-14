@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05F2CB10214829E500C9FAF0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2CB0F214829E500C9FAF0 /* Session.swift */; };
+		A70DBCF8214B357300434902 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBCF7214B357300434902 /* Password.swift */; };
 		A72B93632142C76300D376B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93622142C76300D376B8 /* AppDelegate.swift */; };
 		A72B93682142C76300D376B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72B93662142C76300D376B8 /* Main.storyboard */; };
 		A72B936B2142C76300D376B8 /* RememberMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A72B93692142C76300D376B8 /* RememberMe.xcdatamodeld */; };
@@ -26,8 +27,8 @@
 		A72B93B021430A4700D376B8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93AF21430A4700D376B8 /* HomeController.swift */; };
 		A72B93B221430A5B00D376B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93B121430A5B00D376B8 /* HomeViewModel.swift */; };
 		A72B93B421430BD900D376B8 /* PasswordsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93B321430BD900D376B8 /* PasswordsView.xib */; };
-		A72B93B621430C1100D376B8 /* PasswordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93B521430C1100D376B8 /* PasswordTableViewCell.xib */; };
-		A72B93BA21430CC400D376B8 /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93B921430CC400D376B8 /* PasswordTableViewCell.swift */; };
+		A72B93B621430C1100D376B8 /* PasswordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93B521430C1100D376B8 /* PasswordCollectionViewCell.xib */; };
+		A72B93BA21430CC400D376B8 /* PasswordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93B921430CC400D376B8 /* PasswordCollectionViewCell.swift */; };
 		A72B93BE21430EB900D376B8 /* PasswordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93BD21430EB900D376B8 /* PasswordsView.swift */; };
 		A72B93C12143115400D376B8 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72B93C02143115400D376B8 /* EmptyView.xib */; };
 		A72B93C32143115B00D376B8 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B93C22143115B00D376B8 /* EmptyView.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		05F2CB0F214829E500C9FAF0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A70DBCF7214B357300434902 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		A72B935F2142C76300D376B8 /* RememberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72B93622142C76300D376B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A72B93672142C76300D376B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,8 +84,8 @@
 		A72B93AF21430A4700D376B8 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A72B93B121430A5B00D376B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A72B93B321430BD900D376B8 /* PasswordsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordsView.xib; sourceTree = "<group>"; };
-		A72B93B521430C1100D376B8 /* PasswordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordTableViewCell.xib; sourceTree = "<group>"; };
-		A72B93B921430CC400D376B8 /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
+		A72B93B521430C1100D376B8 /* PasswordCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordCollectionViewCell.xib; sourceTree = "<group>"; };
+		A72B93B921430CC400D376B8 /* PasswordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCollectionViewCell.swift; sourceTree = "<group>"; };
 		A72B93BD21430EB900D376B8 /* PasswordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordsView.swift; sourceTree = "<group>"; };
 		A72B93C02143115400D376B8 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		A72B93C22143115B00D376B8 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				A72B93692142C76300D376B8 /* RememberMe.xcdatamodeld */,
+				A70DBCF7214B357300434902 /* Password.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -265,8 +268,8 @@
 		A72B93B821430C8B00D376B8 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				A72B93B921430CC400D376B8 /* PasswordTableViewCell.swift */,
-				A72B93B521430C1100D376B8 /* PasswordTableViewCell.xib */,
+				A72B93B921430CC400D376B8 /* PasswordCollectionViewCell.swift */,
+				A72B93B521430C1100D376B8 /* PasswordCollectionViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -407,7 +410,7 @@
 				A72B936D2142C76400D376B8 /* Assets.xcassets in Resources */,
 				A72B93682142C76300D376B8 /* Main.storyboard in Resources */,
 				A72B93C12143115400D376B8 /* EmptyView.xib in Resources */,
-				A72B93B621430C1100D376B8 /* PasswordTableViewCell.xib in Resources */,
+				A72B93B621430C1100D376B8 /* PasswordCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72B93632142C76300D376B8 /* AppDelegate.swift in Sources */,
-				A72B93BA21430CC400D376B8 /* PasswordTableViewCell.swift in Sources */,
+				A72B93BA21430CC400D376B8 /* PasswordCollectionViewCell.swift in Sources */,
 				A72B936B2142C76300D376B8 /* RememberMe.xcdatamodeld in Sources */,
 				A72B93B021430A4700D376B8 /* HomeController.swift in Sources */,
 				A72B93C92144288300D376B8 /* CoreData.swift in Sources */,
@@ -453,6 +456,7 @@
 				05F2CB10214829E500C9FAF0 /* Session.swift in Sources */,
 				A72B939A2142C87600D376B8 /* Coordinator.swift in Sources */,
 				A72B93CB21443A3500D376B8 /* PasswordsViewModel.swift in Sources */,
+				A70DBCF8214B357300434902 /* Password.swift in Sources */,
 				A72B939E2142CA7200D376B8 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

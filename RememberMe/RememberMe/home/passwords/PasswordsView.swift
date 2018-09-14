@@ -1,5 +1,5 @@
 //
-//  PasswordsTableView.swift
+//  PasswordsView.swft
 //  RememberMe
 //
 //  Created by Joao Pedro Fabiano Franco on 07/09/2018.
@@ -13,13 +13,12 @@ protocol PasswordsViewInterface {
 }
 
 class PasswordsView: UIView {
-    @IBOutlet weak var passwordsTableView: UITableView! {
+    @IBOutlet weak var passwordsCollectionView: UICollectionView! {
         didSet {
-            let cellNib = UINib(nibName: "PasswordTableViewCell", bundle: nil)
-            self.passwordsTableView.register(cellNib, forCellReuseIdentifier: PasswordTableViewCell.identifier)
-            self.passwordsTableView.dataSource = self
-            self.passwordsTableView.delegate = self
-            self.passwordsTableView.tableFooterView = UIView()
+            let cellNib = UINib(nibName: "PasswordCollectionViewCell", bundle: nil)
+            self.passwordsCollectionView.register(cellNib, forCellWithReuseIdentifier: PasswordCollectionViewCell.identifier)
+            self.passwordsCollectionView.dataSource = self
+            self.passwordsCollectionView.delegate = self
         }
     }
     
@@ -33,44 +32,34 @@ class PasswordsView: UIView {
         super.awakeFromNib()
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed))
-        self.passwordsTableView.addGestureRecognizer(longPressGesture)
+        self.passwordsCollectionView.addGestureRecognizer(longPressGesture)
     }
     
     @objc func longPressed(gesture: UILongPressGestureRecognizer) {
-        self.viewModel.longPressed(tableview: self.passwordsTableView, gesture: gesture)
+        self.viewModel.longPressed(collectionView: self.passwordsCollectionView, gesture: gesture)
     }
 }
 
 extension PasswordsView: PasswordsViewInterface {
     func reload() {
-        self.passwordsTableView.reloadData()
+        self.passwordsCollectionView.reloadData()
     }
 }
 
-extension PasswordsView: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        guard let _ = self.viewModel else {
-            return 0
-        }
-        return self.viewModel.sections
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let _ = self.viewModel else {
-            return 0
-        }
+extension PasswordsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel.rows
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return self.viewModel.cellForRow(tableView: tableView, indexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return self.viewModel.cellForRow(collectionView: collectionView, indexPath: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.didSelectCell(tableView: tableView, indexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.viewModel.didSelectCell(collectionView: collectionView, indexPath: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (self.bounds.width / 2) - 5, height: 100.0)
     }
 }

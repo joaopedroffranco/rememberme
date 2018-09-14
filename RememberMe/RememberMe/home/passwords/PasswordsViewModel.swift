@@ -14,10 +14,10 @@ protocol PasswordsViewModelType {
     var passwords: [Password] { get set }
     var sections: Int { get }
     var rows: Int { get }
-    func cellForRow(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    func cellForRow(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
     func update(passwords: [Password])
-    func didSelectCell(tableView: UITableView, indexPath: IndexPath)
-    func longPressed(tableview: UITableView, gesture: UIGestureRecognizer)
+    func didSelectCell(collectionView: UICollectionView, indexPath: IndexPath)
+    func longPressed(collectionView: UICollectionView, gesture: UIGestureRecognizer)
 }
 
 class PasswordsViewModel: PasswordsViewModelType {
@@ -41,9 +41,9 @@ class PasswordsViewModel: PasswordsViewModelType {
         self.parentViewModel = parentViewModel
     }
     
-    func cellForRow(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PasswordTableViewCell.identifier, for: indexPath) as? PasswordTableViewCell else {
-            return UITableViewCell()
+    func cellForRow(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PasswordCollectionViewCell.identifier, for: indexPath) as? PasswordCollectionViewCell else {
+            return UICollectionViewCell()
         }
         
         let password = self.passwords[indexPath.row]
@@ -52,11 +52,11 @@ class PasswordsViewModel: PasswordsViewModelType {
         return cell
     }
     
-    func didSelectCell(tableView: UITableView, indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
+    func didSelectCell(collectionView: UICollectionView, indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
                 DispatchQueue.main.async {
-                    cell.setSelected(false, animated: true)
+                    cell.isSelected = false
                 }
                 timer.invalidate()
             }
@@ -68,10 +68,10 @@ class PasswordsViewModel: PasswordsViewModelType {
         self.view.reload()
     }
     
-    func longPressed(tableview: UITableView, gesture: UIGestureRecognizer) {
+    func longPressed(collectionView: UICollectionView, gesture: UIGestureRecognizer) {
         if (gesture.state == .began) {
-            let location = gesture.location(in: tableview)
-            if let indexPath = tableview.indexPathForRow(at: location) {
+            let location = gesture.location(in: collectionView)
+            if let indexPath = collectionView.indexPathForItem(at: location) {
                 let password = self.passwords[indexPath.row]
                 self.parentViewModel.presentOptionsAlertController(forPassword: password)
             }
