@@ -9,21 +9,33 @@
 import UIKit
 
 class PasswordCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var passwordBackgroundView: UIView!
     @IBOutlet weak var passwordNameLabel: UILabel!
     @IBOutlet weak var passwordContentLabel: UILabel!
     @IBOutlet weak var passwordDescLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.round()
+        self.passwordBackgroundView.round()
         self.shadow()
     }
     
     func didSelect() {
-        self.passwordContentLabel.textColor = UIColor.white
+        UIView.animate(withDuration: 0.2, animations: {
+            self.passwordBackgroundView.alpha = 0.2
+        }) { (completed) in
+            if (completed) {
+                self.setTimerToDeselect()
+            }
+        }
+    }
+    
+    func setTimerToDeselect() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
             DispatchQueue.main.async {
-                    self.passwordContentLabel.textColor = self.backgroundColor
+                UIView.animate(withDuration: 0.2) {
+                    self.passwordBackgroundView.alpha = 1
+                }
             }
             timer.invalidate()
         }
@@ -34,8 +46,8 @@ class PasswordCollectionViewCell: UICollectionViewCell {
         self.passwordContentLabel.text = password.content
         self.passwordDescLabel.text = password.desc
 
-        self.backgroundColor = password.category.color
+        self.passwordBackgroundView.backgroundColor = password.category.color
         self.passwordNameLabel.textColor = UIColor.white
-        self.passwordContentLabel.textColor = self.backgroundColor
+        self.passwordContentLabel.textColor = self.passwordBackgroundView.backgroundColor
     }
 }
