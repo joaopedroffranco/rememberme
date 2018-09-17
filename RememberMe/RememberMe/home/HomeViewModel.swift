@@ -59,11 +59,11 @@ class HomeViewModel: HomeViewModelType {
     
     func presentOptionsAlertController(forPassword password: Password) {
         let alertController = UIAlertController(title: password.name, message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { (_) in
-            self.removePassword(password)
-        }))
         alertController.addAction(UIAlertAction(title: "Editar", style: .default, handler: { (_) in
             self.coordinator.presentPassword(password)
+        }))
+        alertController.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { (_) in
+            self.removePassword(password)
         }))
         alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         self.controller.show(alertController: alertController)
